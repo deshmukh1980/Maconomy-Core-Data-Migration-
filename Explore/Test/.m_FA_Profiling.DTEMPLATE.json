@@ -1,0 +1,48 @@
+{
+  "objectInfo" : {
+    "id" : "cm6GeaRJxKPixgTVlJmAq4",
+    "name" : "m_FA_Profiling",
+    "type" : "DTEMPLATE",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "01CHOM170000000000L4"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "zip",
+  "updateTime" : "2023-11-30T08:00:19.022Z",
+  "objectRefs" : [ {
+    "id" : "2wRwOvyFBVSf6wbJTmYgqx",
+    "name" : "MPLT_Master_Standard_Rules",
+    "type" : "DMAPPLET",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "01CHOM40000000000002"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/CDI-Mapplets/Standard Rules Mapplets"
+  } ]
+}

@@ -1,0 +1,805 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>UrXoE9paabdqpw0-gt-63635468-2023-05-30T13:53:26.743Z::tf.xml</types1:EntryId>
+      <types1:Name>TF_Clients_V1-1</types1:Name>
+      <types1:MimeType>application/xml+taskflow</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>bablu.prasadyadav@wpp.com</types1:CreatedBy>
+      <types1:CreationDate>2023-05-30T13:53:27Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <taskflow xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                   xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                   xmlns:list="urn:activevos:spi:list:functions"
+                   displayName="TF_Clients_V1"
+                   name="TF_Clients_V1-1"
+                   overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <tempFields>
+               <field description=""
+                      name="TF_ClientsConsolidated_Table_Raw_C1"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:mct-ClientsConsolidated-Table-Raw-C1</option>
+                     <option name="guid"/>
+                  </options>
+               </field>
+               <field description="" name="TF_RUClient_Companies_LKP_C2" type="reference">
+                  <options>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:mct-RUClient-Companies-LKP-C2</option>
+                     <option name="guid"/>
+                  </options>
+               </field>
+               <field description=""
+                      name="ClientsConsolidated_Table_Raw_C1"
+                      type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="RUClient_Companies_LKP_C2" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="TF_stg_cleints_consolidated_C3"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:mct-stg-cleints-consolidated-C3</option>
+                  </options>
+               </field>
+               <field description="" name="stg_cleints_consolidated_C3" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="TF_stg_globalclients_C4" type="reference">
+                  <options>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:mct-stg-globalclients-C4</option>
+                  </options>
+               </field>
+               <field description="" name="stg_globalclients_C4" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="TF_Nomalize_C5" type="reference">
+                  <options>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:mct-Nomalize-C5</option>
+                  </options>
+               </field>
+               <field description="" name="Nomalize_C5" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="TF_OpcoFiles_Stg_companyclientsC6"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:mct-OpcoFilesC6</option>
+                     <option name="guid"/>
+                  </options>
+               </field>
+               <field description="" name="OpcoFilesC6" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="lhri1nyx" targetId="lhri1o1v"/>
+               </start>
+               <eventContainer id="lhri1o1v">
+                  <service id="lhri1nyw">
+                     <title>TF_ClientsConsolidated_Table_Raw_C1</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                        <parameter name="Task Name" source="constant" updatable="true">mct_ClientsConsolidated_Table_Raw_C1</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">aw3owrBApzdkGdErVwt3Wa</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field" to="mct-ClientsConsolidated-Table-Raw-C1">temp.TF_ClientsConsolidated_Table_Raw_C1</operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field"
+                                   to="temp.TF_ClientsConsolidated_Table_Raw_C1/output/Object_Name">Object Name</operation>
+                        <operation source="field"
+                                   to="temp.TF_ClientsConsolidated_Table_Raw_C1/output/Run_Id">Run Id</operation>
+                        <operation source="field"
+                                   to="temp.TF_ClientsConsolidated_Table_Raw_C1/output/Log_Id">Log Id</operation>
+                        <operation source="field"
+                                   to="temp.TF_ClientsConsolidated_Table_Raw_C1/output/Task_Id">Task Id</operation>
+                        <operation source="field"
+                                   to="temp.TF_ClientsConsolidated_Table_Raw_C1/output/Task_Status">Task Status</operation>
+                        <operation source="field"
+                                   to="temp.TF_ClientsConsolidated_Table_Raw_C1/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.TF_ClientsConsolidated_Table_Raw_C1/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.TF_ClientsConsolidated_Table_Raw_C1/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.TF_ClientsConsolidated_Table_Raw_C1/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.TF_ClientsConsolidated_Table_Raw_C1/output/Start_Time">Start Time</operation>
+                        <operation source="field"
+                                   to="temp.TF_ClientsConsolidated_Table_Raw_C1/output/End_Time">End Time</operation>
+                        <operation source="field"
+                                   to="temp.TF_ClientsConsolidated_Table_Raw_C1/output/Error_Message">Error Message</operation>
+                        <operation source="field"
+                                   to="temp.TF_ClientsConsolidated_Table_Raw_C1/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field"
+                                   to="temp.TF_ClientsConsolidated_Table_Raw_C1/output/FirstErrorCode">First Error Code</operation>
+                     </serviceOutput>
+                  </service>
+                  <link id="lhri1nz3" targetId="lhri1nz2"/>
+                  <events>
+                     <catch faultField="temp.TF_ClientsConsolidated_Table_Raw_C1/fault"
+                            id="lhri1o1t"
+                            interrupting="true"
+                            name="error">
+                        <suspend/>
+                     </catch>
+                     <catch faultField="temp.TF_ClientsConsolidated_Table_Raw_C1/fault"
+                            id="lhri1o1u"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <assignment id="lhri1nz2">
+                  <title>Assignment 1</title>
+                  <operation source="formula" to="temp.ClientsConsolidated_Table_Raw_C1">
+                     <expression language="XQuery">if($temp.TF_ClientsConsolidated_Table_Raw_C1  [1]/output[1]/Task_Status = 1 )then 'Success' else 'Failure'</expression>
+                  </operation>
+                  <link id="lhri1nz8" targetId="lhri1nz7"/>
+               </assignment>
+               <container id="lhri1nz7" type="exclusive">
+                  <title>Decision 1</title>
+                  <flow id="lhri1nzb">
+                     <eventContainer id="lhri1o3h">
+                        <service id="lhri1nzt">
+                           <title>TF_RUClient_Companies_LKP_C2</title>
+                           <serviceName>ICSExecuteDataTask</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                              <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                              <parameter name="Task Name" source="constant" updatable="true">mct_RUClient_Companies_LKP_C2</parameter>
+                              <parameter name="GUID" source="constant" updatable="true">hb9YPTgx1OngJ6BUOlGBCS</parameter>
+                              <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                              <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                              <parameter name="taskField" source="nested">
+                                 <operation source="field" to="mct-RUClient-Companies-LKP-C2">temp.TF_RUClient_Companies_LKP_C2</operation>
+                              </parameter>
+                           </serviceInput>
+                           <serviceOutput>
+                              <operation source="field"
+                                         to="temp.TF_RUClient_Companies_LKP_C2/output/Object_Name">Object Name</operation>
+                              <operation source="field" to="temp.TF_RUClient_Companies_LKP_C2/output/Run_Id">Run Id</operation>
+                              <operation source="field" to="temp.TF_RUClient_Companies_LKP_C2/output/Log_Id">Log Id</operation>
+                              <operation source="field" to="temp.TF_RUClient_Companies_LKP_C2/output/Task_Id">Task Id</operation>
+                              <operation source="field"
+                                         to="temp.TF_RUClient_Companies_LKP_C2/output/Task_Status">Task Status</operation>
+                              <operation source="field"
+                                         to="temp.TF_RUClient_Companies_LKP_C2/output/Success_Source_Rows">Success Source Rows</operation>
+                              <operation source="field"
+                                         to="temp.TF_RUClient_Companies_LKP_C2/output/Failed_Source_Rows">Failed Source Rows</operation>
+                              <operation source="field"
+                                         to="temp.TF_RUClient_Companies_LKP_C2/output/Success_Target_Rows">Success Target Rows</operation>
+                              <operation source="field"
+                                         to="temp.TF_RUClient_Companies_LKP_C2/output/Failed_Target_Rows">Failed Target Rows</operation>
+                              <operation source="field" to="temp.TF_RUClient_Companies_LKP_C2/output/Start_Time">Start Time</operation>
+                              <operation source="field" to="temp.TF_RUClient_Companies_LKP_C2/output/End_Time">End Time</operation>
+                              <operation source="field"
+                                         to="temp.TF_RUClient_Companies_LKP_C2/output/Error_Message">Error Message</operation>
+                              <operation source="field"
+                                         to="temp.TF_RUClient_Companies_LKP_C2/output/TotalTransErrors">Total Transformation Errors</operation>
+                              <operation source="field"
+                                         to="temp.TF_RUClient_Companies_LKP_C2/output/FirstErrorCode">First Error Code</operation>
+                           </serviceOutput>
+                        </service>
+                        <link id="lhri1nzz" targetId="lhri1nzy"/>
+                        <events>
+                           <catch faultField="temp.TF_RUClient_Companies_LKP_C2/fault"
+                                  id="lhri1o3f"
+                                  interrupting="true"
+                                  name="error">
+                              <suspend/>
+                           </catch>
+                           <catch faultField="temp.TF_RUClient_Companies_LKP_C2/fault"
+                                  id="lhri1o3g"
+                                  interrupting="true"
+                                  name="warning"/>
+                        </events>
+                     </eventContainer>
+                     <assignment id="lhri1nzy">
+                        <title>Assignment 2</title>
+                        <operation source="formula" to="temp.RUClient_Companies_LKP_C2">
+                           <expression language="XQuery">if($temp.TF_RUClient_Companies_LKP_C2  [1]/output[1]/Task_Status = 1 )then 'Success' else 'Failure'</expression>
+                        </operation>
+                        <link id="lhri1o04" targetId="lhri1o03"/>
+                     </assignment>
+                     <container id="lhri1o03" type="exclusive">
+                        <title>Decision 2</title>
+                        <flow id="lhri1o06">
+                           <eventContainer id="lhri1o7u">
+                              <service id="lhri1o6a">
+                                 <title>TF_stg_cleints_consolidated_C3</title>
+                                 <serviceName>ICSExecuteDataTask</serviceName>
+                                 <serviceGUID/>
+                                 <serviceInput>
+                                    <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                                    <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                                    <parameter name="Task Name" source="constant" updatable="true">mct_stg_cleints_consolidated_C3</parameter>
+                                    <parameter name="GUID" source="constant" updatable="true">ayVmZE4pHCpj92A8cokJ2o</parameter>
+                                    <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                                    <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                                    <parameter name="taskField" source="nested">
+                                       <operation source="field" to="mct-stg-cleints-consolidated-C3">temp.TF_stg_cleints_consolidated_C3</operation>
+                                    </parameter>
+                                 </serviceInput>
+                                 <serviceOutput>
+                                    <operation source="field"
+                                               to="temp.TF_stg_cleints_consolidated_C3/output/Object_Name">Object Name</operation>
+                                    <operation source="field" to="temp.TF_stg_cleints_consolidated_C3/output/Run_Id">Run Id</operation>
+                                    <operation source="field" to="temp.TF_stg_cleints_consolidated_C3/output/Log_Id">Log Id</operation>
+                                    <operation source="field" to="temp.TF_stg_cleints_consolidated_C3/output/Task_Id">Task Id</operation>
+                                    <operation source="field"
+                                               to="temp.TF_stg_cleints_consolidated_C3/output/Task_Status">Task Status</operation>
+                                    <operation source="field"
+                                               to="temp.TF_stg_cleints_consolidated_C3/output/Success_Source_Rows">Success Source Rows</operation>
+                                    <operation source="field"
+                                               to="temp.TF_stg_cleints_consolidated_C3/output/Failed_Source_Rows">Failed Source Rows</operation>
+                                    <operation source="field"
+                                               to="temp.TF_stg_cleints_consolidated_C3/output/Success_Target_Rows">Success Target Rows</operation>
+                                    <operation source="field"
+                                               to="temp.TF_stg_cleints_consolidated_C3/output/Failed_Target_Rows">Failed Target Rows</operation>
+                                    <operation source="field"
+                                               to="temp.TF_stg_cleints_consolidated_C3/output/Start_Time">Start Time</operation>
+                                    <operation source="field" to="temp.TF_stg_cleints_consolidated_C3/output/End_Time">End Time</operation>
+                                    <operation source="field"
+                                               to="temp.TF_stg_cleints_consolidated_C3/output/Error_Message">Error Message</operation>
+                                    <operation source="field"
+                                               to="temp.TF_stg_cleints_consolidated_C3/output/TotalTransErrors">Total Transformation Errors</operation>
+                                    <operation source="field"
+                                               to="temp.TF_stg_cleints_consolidated_C3/output/FirstErrorCode">First Error Code</operation>
+                                 </serviceOutput>
+                              </service>
+                              <link id="lhri1o6g" targetId="lhri1o6f"/>
+                              <events>
+                                 <catch faultField="temp.TF_stg_cleints_consolidated_C3/fault"
+                                        id="lhri1o7s"
+                                        interrupting="true"
+                                        name="error">
+                                    <suspend/>
+                                 </catch>
+                                 <catch faultField="temp.TF_stg_cleints_consolidated_C3/fault"
+                                        id="lhri1o7t"
+                                        interrupting="true"
+                                        name="warning"/>
+                              </events>
+                           </eventContainer>
+                           <assignment id="lhri1o6f">
+                              <title>Assignment 3</title>
+                              <operation source="formula" to="temp.stg_cleints_consolidated_C3">
+                                 <expression language="XQuery">if($temp.TF_stg_cleints_consolidated_C3 [1]/output[1]/Task_Status = 1 )then 'Success' else 'Failure'</expression>
+                              </operation>
+                              <link id="lhri1o6l" targetId="lhri1o6k"/>
+                           </assignment>
+                           <container id="lhri1o6k" type="exclusive">
+                              <title>Decision 3</title>
+                              <flow id="lhri1o6o">
+                                 <eventContainer id="lhri1oc8">
+                                    <service id="lhri1oai">
+                                       <title>TF_stg_globalclients_C4</title>
+                                       <serviceName>ICSExecuteDataTask</serviceName>
+                                       <serviceGUID/>
+                                       <serviceInput>
+                                          <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                                          <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                                          <parameter name="Task Name" source="constant" updatable="true">mct_stg_globalclients_C4</parameter>
+                                          <parameter name="GUID" source="constant" updatable="true">6KSk6YPuqZCcO7ZXmaZ6YC</parameter>
+                                          <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                                          <parameter name="Has Inout Parameters" source="constant" updatable="true">true</parameter>
+                                          <parameter name="taskField" source="nested">
+                                             <operation source="field" to="mct-stg-globalclients-C4">temp.TF_stg_globalclients_C4</operation>
+                                          </parameter>
+                                       </serviceInput>
+                                       <serviceOutput>
+                                          <operation source="field" to="temp.TF_stg_globalclients_C4/output/Object_Name">Object Name</operation>
+                                          <operation source="field" to="temp.TF_stg_globalclients_C4/output/Run_Id">Run Id</operation>
+                                          <operation source="field" to="temp.TF_stg_globalclients_C4/output/Log_Id">Log Id</operation>
+                                          <operation source="field" to="temp.TF_stg_globalclients_C4/output/Task_Id">Task Id</operation>
+                                          <operation source="field" to="temp.TF_stg_globalclients_C4/output/Task_Status">Task Status</operation>
+                                          <operation source="field"
+                                                     to="temp.TF_stg_globalclients_C4/output/Success_Source_Rows">Success Source Rows</operation>
+                                          <operation source="field"
+                                                     to="temp.TF_stg_globalclients_C4/output/Failed_Source_Rows">Failed Source Rows</operation>
+                                          <operation source="field"
+                                                     to="temp.TF_stg_globalclients_C4/output/Success_Target_Rows">Success Target Rows</operation>
+                                          <operation source="field"
+                                                     to="temp.TF_stg_globalclients_C4/output/Failed_Target_Rows">Failed Target Rows</operation>
+                                          <operation source="field" to="temp.TF_stg_globalclients_C4/output/Start_Time">Start Time</operation>
+                                          <operation source="field" to="temp.TF_stg_globalclients_C4/output/End_Time">End Time</operation>
+                                          <operation source="field" to="temp.TF_stg_globalclients_C4/output/Error_Message">Error Message</operation>
+                                          <operation source="field"
+                                                     to="temp.TF_stg_globalclients_C4/output/TotalTransErrors">Total Transformation Errors</operation>
+                                          <operation source="field" to="temp.TF_stg_globalclients_C4/output/FirstErrorCode">First Error Code</operation>
+                                          <operation source="field"
+                                                     to="temp.TF_stg_globalclients_C4/inout/MaxMaconomyClientNo">MaxMaconomyClientNo</operation>
+                                          <operation source="field" to="temp.TF_stg_globalclients_C4/inout/Wave_Param">Wave_Param</operation>
+                                       </serviceOutput>
+                                    </service>
+                                    <link id="lhri1oao" targetId="lhri1oan"/>
+                                    <events>
+                                       <catch faultField="temp.TF_stg_globalclients_C4/fault"
+                                              id="lhri1oc6"
+                                              interrupting="true"
+                                              name="error">
+                                          <suspend/>
+                                       </catch>
+                                       <catch faultField="temp.TF_stg_globalclients_C4/fault"
+                                              id="lhri1oc7"
+                                              interrupting="true"
+                                              name="warning"/>
+                                    </events>
+                                 </eventContainer>
+                                 <assignment id="lhri1oan">
+                                    <title>Assignment 4</title>
+                                    <operation source="formula" to="temp.stg_globalclients_C4">
+                                       <expression language="XQuery">if($temp.TF_stg_globalclients_C4 [1]/output[1]/Task_Status = 1 )then 'Success' else 'Failure'</expression>
+                                    </operation>
+                                    <link id="lhri1oat" targetId="lhri1oas"/>
+                                 </assignment>
+                                 <container id="lhri1oas" type="exclusive">
+                                    <title>Decision 4</title>
+                                    <flow id="lhri1oaw">
+                                       <eventContainer id="lhri1ogf">
+                                          <service id="lhri1oer">
+                                             <title>TF_Nomalize_C5</title>
+                                             <serviceName>ICSExecuteDataTask</serviceName>
+                                             <serviceGUID/>
+                                             <serviceInput>
+                                                <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                                                <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                                                <parameter name="Task Name" source="constant" updatable="true">mct_Nomalize_C5</parameter>
+                                                <parameter name="GUID" source="constant" updatable="true">2y9itFkCgGVhm11nJ5O6Ey</parameter>
+                                                <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                                                <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                                                <parameter name="taskField" source="nested">
+                                                   <operation source="field" to="mct-Nomalize-C5">temp.TF_Nomalize_C5</operation>
+                                                </parameter>
+                                             </serviceInput>
+                                             <serviceOutput>
+                                                <operation source="field" to="temp.TF_Nomalize_C5/output/Object_Name">Object Name</operation>
+                                                <operation source="field" to="temp.TF_Nomalize_C5/output/Run_Id">Run Id</operation>
+                                                <operation source="field" to="temp.TF_Nomalize_C5/output/Log_Id">Log Id</operation>
+                                                <operation source="field" to="temp.TF_Nomalize_C5/output/Task_Id">Task Id</operation>
+                                                <operation source="field" to="temp.TF_Nomalize_C5/output/Task_Status">Task Status</operation>
+                                                <operation source="field" to="temp.TF_Nomalize_C5/output/Success_Source_Rows">Success Source Rows</operation>
+                                                <operation source="field" to="temp.TF_Nomalize_C5/output/Failed_Source_Rows">Failed Source Rows</operation>
+                                                <operation source="field" to="temp.TF_Nomalize_C5/output/Success_Target_Rows">Success Target Rows</operation>
+                                                <operation source="field" to="temp.TF_Nomalize_C5/output/Failed_Target_Rows">Failed Target Rows</operation>
+                                                <operation source="field" to="temp.TF_Nomalize_C5/output/Start_Time">Start Time</operation>
+                                                <operation source="field" to="temp.TF_Nomalize_C5/output/End_Time">End Time</operation>
+                                                <operation source="field" to="temp.TF_Nomalize_C5/output/Error_Message">Error Message</operation>
+                                                <operation source="field" to="temp.TF_Nomalize_C5/output/TotalTransErrors">Total Transformation Errors</operation>
+                                                <operation source="field" to="temp.TF_Nomalize_C5/output/FirstErrorCode">First Error Code</operation>
+                                             </serviceOutput>
+                                          </service>
+                                          <link id="lhri1oex" targetId="lhri1oew"/>
+                                          <events>
+                                             <catch faultField="temp.TF_Nomalize_C5/fault"
+                                                    id="lhri1ogd"
+                                                    interrupting="true"
+                                                    name="error">
+                                                <suspend/>
+                                             </catch>
+                                             <catch faultField="temp.TF_Nomalize_C5/fault"
+                                                    id="lhri1oge"
+                                                    interrupting="true"
+                                                    name="warning"/>
+                                          </events>
+                                       </eventContainer>
+                                       <assignment id="lhri1oew">
+                                          <title>Assignment 5</title>
+                                          <operation source="formula" to="temp.Nomalize_C5">
+                                             <expression language="XQuery">if($temp.TF_Nomalize_C5 [1]/output[1]/Task_Status = 1 )then 'Success' else 'Failure'</expression>
+                                          </operation>
+                                          <link id="lhri1of2" targetId="lhri1of1"/>
+                                       </assignment>
+                                       <container id="lhri1of1" type="exclusive">
+                                          <title>Decision 5</title>
+                                          <flow id="lhri1of5">
+                                             <eventContainer id="lhri1oje">
+                                                <service id="lhri1ohn">
+                                                   <title>TF_OpcoFiles_Stg_companyclientsC6</title>
+                                                   <serviceName>ICSExecuteDataTask</serviceName>
+                                                   <serviceGUID/>
+                                                   <serviceInput>
+                                                      <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                                                      <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                                                      <parameter name="Task Name" source="constant" updatable="true">mct_OpcoFilesC6</parameter>
+                                                      <parameter name="GUID" source="constant" updatable="true">9HJTJJ13zFRjIeoMzagUmf</parameter>
+                                                      <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                                                      <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                                                      <parameter name="taskField" source="nested">
+                                                         <operation source="field" to="mct-OpcoFiles-Stg-companyclientsC6">temp.TF_OpcoFiles_Stg_companyclientsC6</operation>
+                                                      </parameter>
+                                                   </serviceInput>
+                                                   <serviceOutput>
+                                                      <operation source="field"
+                                                                 to="temp.TF_OpcoFiles_Stg_companyclientsC6/output/Object_Name">Object Name</operation>
+                                                      <operation source="field"
+                                                                 to="temp.TF_OpcoFiles_Stg_companyclientsC6/output/Run_Id">Run Id</operation>
+                                                      <operation source="field"
+                                                                 to="temp.TF_OpcoFiles_Stg_companyclientsC6/output/Log_Id">Log Id</operation>
+                                                      <operation source="field"
+                                                                 to="temp.TF_OpcoFiles_Stg_companyclientsC6/output/Task_Id">Task Id</operation>
+                                                      <operation source="field"
+                                                                 to="temp.TF_OpcoFiles_Stg_companyclientsC6/output/Task_Status">Task Status</operation>
+                                                      <operation source="field"
+                                                                 to="temp.TF_OpcoFiles_Stg_companyclientsC6/output/Success_Source_Rows">Success Source Rows</operation>
+                                                      <operation source="field"
+                                                                 to="temp.TF_OpcoFiles_Stg_companyclientsC6/output/Failed_Source_Rows">Failed Source Rows</operation>
+                                                      <operation source="field"
+                                                                 to="temp.TF_OpcoFiles_Stg_companyclientsC6/output/Success_Target_Rows">Success Target Rows</operation>
+                                                      <operation source="field"
+                                                                 to="temp.TF_OpcoFiles_Stg_companyclientsC6/output/Failed_Target_Rows">Failed Target Rows</operation>
+                                                      <operation source="field"
+                                                                 to="temp.TF_OpcoFiles_Stg_companyclientsC6/output/Start_Time">Start Time</operation>
+                                                      <operation source="field"
+                                                                 to="temp.TF_OpcoFiles_Stg_companyclientsC6/output/End_Time">End Time</operation>
+                                                      <operation source="field"
+                                                                 to="temp.TF_OpcoFiles_Stg_companyclientsC6/output/Error_Message">Error Message</operation>
+                                                      <operation source="field"
+                                                                 to="temp.TF_OpcoFiles_Stg_companyclientsC6/output/TotalTransErrors">Total Transformation Errors</operation>
+                                                      <operation source="field"
+                                                                 to="temp.TF_OpcoFiles_Stg_companyclientsC6/output/FirstErrorCode">First Error Code</operation>
+                                                   </serviceOutput>
+                                                </service>
+                                                <link id="lhri1oht" targetId="lhri1ohs"/>
+                                                <events>
+                                                   <catch faultField="temp.TF_OpcoFiles_Stg_companyclientsC6/fault"
+                                                          id="lhri1ojc"
+                                                          interrupting="true"
+                                                          name="error">
+                                                      <suspend/>
+                                                   </catch>
+                                                   <catch faultField="temp.TF_OpcoFiles_Stg_companyclientsC6/fault"
+                                                          id="lhri1ojd"
+                                                          interrupting="true"
+                                                          name="warning"/>
+                                                </events>
+                                             </eventContainer>
+                                             <assignment id="lhri1ohs">
+                                                <title>Assignment 6</title>
+                                                <operation source="formula" to="temp.OpcoFilesC6">
+                                                   <expression language="XQuery">if($temp.TF_OpcoFiles_Stg_companyclientsC6 [1]/output[1]/Task_Status = 1 )then 'Success' else 'Failure'</expression>
+                                                </operation>
+                                                <link id="lhri1ohy" targetId="lhri1ohx"/>
+                                             </assignment>
+                                             <container id="lhri1ohx" type="exclusive">
+                                                <title>Decision 6</title>
+                                                <flow id="lhri1oi1">
+                                                   <end id="lhri1oit">
+                                                      <title>End 6</title>
+                                                   </end>
+                                                </flow>
+                                                <flow id="lhri1oi4">
+                                                   <end id="lhri1oie">
+                                                      <title>End 5</title>
+                                                   </end>
+                                                </flow>
+                                                <link id="lhri1oi0" targetId="lhri1oi1" type="containerLink">
+                                                   <condition source="formula">
+                                                      <function name="string-equals">
+                                                         <arg name="left">{$temp.OpcoFilesC6}</arg>
+                                                         <arg name="right">Success</arg>
+                                                      </function>
+                                                   </condition>
+                                                </link>
+                                                <link id="lhri1oi3" targetId="lhri1oi4" type="containerLink"/>
+                                             </container>
+                                          </flow>
+                                          <flow id="lhri1of8">
+                                             <end id="lhri1ofh">
+                                                <title>End 4</title>
+                                             </end>
+                                          </flow>
+                                          <link id="lhri1of4" targetId="lhri1of5" type="containerLink">
+                                             <condition source="formula">
+                                                <function name="string-equals">
+                                                   <arg name="left">{$temp.Nomalize_C5}</arg>
+                                                   <arg name="right">Success</arg>
+                                                </function>
+                                             </condition>
+                                          </link>
+                                          <link id="lhri1of7" targetId="lhri1of8" type="containerLink"/>
+                                       </container>
+                                    </flow>
+                                    <flow id="lhri1oaz">
+                                       <end id="lhri1ob7">
+                                          <title>End 3</title>
+                                       </end>
+                                    </flow>
+                                    <link id="lhri1oav" targetId="lhri1oaw" type="containerLink">
+                                       <condition source="formula">
+                                          <function name="string-equals">
+                                             <arg name="left">{$temp.stg_globalclients_C4}</arg>
+                                             <arg name="right">Success</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="lhri1oay" targetId="lhri1oaz" type="containerLink"/>
+                                 </container>
+                              </flow>
+                              <flow id="lhri1o6r">
+                                 <end id="lhri1o6y">
+                                    <title>End 2</title>
+                                 </end>
+                              </flow>
+                              <link id="lhri1o6n" targetId="lhri1o6o" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="string-equals">
+                                       <arg name="left">{$temp.stg_cleints_consolidated_C3}</arg>
+                                       <arg name="right">Success</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="lhri1o6q" targetId="lhri1o6r" type="containerLink"/>
+                           </container>
+                        </flow>
+                        <flow id="lhri1o09">
+                           <end id="lhri1o0u">
+                              <title>End 1</title>
+                           </end>
+                        </flow>
+                        <link id="lhri1o05" targetId="lhri1o06" type="containerLink">
+                           <condition source="formula">
+                              <function name="string-equals">
+                                 <arg name="left">{$temp.RUClient_Companies_LKP_C2}</arg>
+                                 <arg name="right">Success</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="lhri1o08" targetId="lhri1o09" type="containerLink"/>
+                     </container>
+                  </flow>
+                  <flow id="lhri1nze">
+                     <end id="lhri1nzo"/>
+                  </flow>
+                  <link id="lhri1nza" targetId="lhri1nzb" type="containerLink">
+                     <condition source="formula">
+                        <function name="string-equals">
+                           <arg name="left">{$temp.ClientsConsolidated_Table_Raw_C1}</arg>
+                           <arg name="right">Success</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="lhri1nzd" targetId="lhri1nze" type="containerLink"/>
+               </container>
+            </flow>
+            <dependencies>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="mct-ClientsConsolidated-Table-Raw-C1"
+                              isByCopy="true"
+                              name="mct-ClientsConsolidated-Table-Raw-C1">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="mct-RUClient-Companies-LKP-C2"
+                              isByCopy="true"
+                              name="mct-RUClient-Companies-LKP-C2">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="mct-stg-cleints-consolidated-C3"
+                              isByCopy="true"
+                              name="mct-stg-cleints-consolidated-C3">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="mct-stg-globalclients-C4"
+                              isByCopy="true"
+                              name="mct-stg-globalclients-C4">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="InOut Parameters"
+                            name="inout"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="mct-Nomalize-C5"
+                              isByCopy="true"
+                              name="mct-Nomalize-C5">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="mct-OpcoFilesC6"
+                              isByCopy="true"
+                              name="mct-OpcoFilesC6">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+            </dependencies>
+         </taskflow>
+      </types1:Entry>
+      <types1:GUID>5ZqvKELl02BkxIJ2GN3TmM</types1:GUID>
+      <types1:DisplayName>TF_Clients_V1</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2023-11-30T08:00:18.207Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
